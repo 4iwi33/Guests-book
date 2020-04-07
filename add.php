@@ -1,5 +1,6 @@
 <?php
 
+include("config.php");
 include('connect.php');
 
 $result = $mysqli->query(
