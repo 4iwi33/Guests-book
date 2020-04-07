@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,6 +29,12 @@
 include("config.php");
 include("connect.php");
 include("libery.php");
+
+if (isset($_SESSION['bantime']) && ($_SESSION['bantime'] > time())) {
+    echo ($_SESSION['bantime'] - time());
+}
+
+
 
 $result_count = $mysqli->query('SELECT count(*) FROM guests'); //считаем количество строк в таблице
 $count = $result_count->fetch_array(MYSQLI_NUM)[0];

@@ -85,7 +85,10 @@ function bb_code($text) {
 }
 
 
-
+function censor($text)
+{
+    return preg_match('/(дурак|редиска)/i', $text) ? false: true;
+}
 
 
 
