@@ -9,6 +9,15 @@
         img {
             width: 1rem;
         }
+
+        .pageination a {
+            color: green;
+        }
+
+        .selectedpage {
+            color: blue;
+            font-weight: bolder;
+        }
     </style>
 </head>
 <?php
@@ -32,8 +41,15 @@ $startrow = ($currientpage - 1) * $pagesize;
 $pageination = "<div class='pageination'>";
 
 for ($i = 1; $i <= $pagecount; $i++) {
-    $pageination .= "<a href='?page=$i'>$i</a>";
+    // if ($currientpage == $i) {
+    //     $str = " class='selectedpage'";
+    // } else {
+    //     $str = "";
+    // }
+    $str = ($currientpage == $i) ? " class='selectedpage'" : "";
+    $pageination .= "<a href='?page=$i'$str>$i</a>";
 }
+
 $pageination .= "</div>";
 
 $result = $mysqli->query("SELECT * FROM guests LIMIT $startrow, $pagesize");
