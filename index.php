@@ -15,8 +15,8 @@
         }
 
         .selectedpage {
-            color: blue;
-            font-weight: bolder;
+            color: blue !important;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -38,7 +38,7 @@ $currientpage = $_GET['page'] ?? 1;
 
 $startrow = ($currientpage - 1) * $pagesize;
 
-$pageination = "<div class='pageination'>";
+$pageination = "<div class='pageination'>\n";
 
 for ($i = 1; $i <= $pagecount; $i++) {
     // if ($currientpage == $i) {
@@ -47,7 +47,7 @@ for ($i = 1; $i <= $pagecount; $i++) {
     //     $str = "";
     // }
     $str = ($currientpage == $i) ? " class='selectedpage'" : "";
-    $pageination .= "<a href='?page=$i'$str>$i</a>";
+    $pageination .= "<a href='?page=$i'$str>$i</a>\n";
 }
 
 $pageination .= "</div>";
