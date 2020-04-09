@@ -42,42 +42,42 @@ echo "количество записей: <b>$count</b>";
 $result_count->free();
 // echo $pagesize;
 
-$pagecount = ceil($count / $pagesize);
+// $pagecount = ceil($count / $pagesize);
 
-$currientpage = $_GET['page'] ?? 1;
+// $currientpage = $_GET['page'] ?? 1;
 
-$startrow = ($currientpage - 1) * $pagesize;
+// $startrow = ($currientpage - 1) * $pagesize;
 
-$pageination = "<div class='pageination'>\n";
+// $pageination = "<div class='pageination'>\n";
 
-for ($i = 1; $i <= $pagecount; $i++) {
-    // if ($currientpage == $i) {
-    //     $str = " class='selectedpage'";
-    // } else {
-    //     $str = "";
-    // }
-    $str = ($currientpage == $i) ? " class='selectedpage'" : "";
-    $pageination .= "<a href='?page=$i'$str>$i</a>\n";
-}
+// for ($i = 1; $i <= $pagecount; $i++) {
+//     // if ($currientpage == $i) {
+//     //     $str = " class='selectedpage'";
+//     // } else {
+//     //     $str = "";
+//     // }
+//     $str = ($currientpage == $i) ? " class='selectedpage'" : "";
+//     $pageination .= "<a href='?page=$i'$str>$i</a>\n";
+// }
 
-$pageination .= "</div>";
+// $pageination .= "</div>";
 
 $result = $mysqli->query("SELECT * FROM guests LIMIT $startrow, $pagesize");
 
-echo $pageination;
+// echo $pageination;
 
-echo "<table border='1'>\n";
-while ($row = $result->fetch_object()) {
-    echo "<tr>";
-    echo "<td>" . smile($row->text) . "</td>";
-    echo "<td>" . $row->name . "</td>";
-    echo "</tr>";
-}
-echo "</table>\n";
+// echo "<table border='1'>\n";
+// while ($row = $result->fetch_object()) {
+//     echo "<tr>";
+//     echo "<td>" . smile($row->text) . "</td>";
+//     echo "<td>" . $row->name . "</td>";
+//     echo "</tr>";
+// }
+// echo "</table>\n";
 
-echo $pageination;
+// echo $pageination;
 
-$result->free();
+// $result->free();
 
 $mysqli->close();
 ?>
