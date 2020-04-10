@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION['visit'];
 ?>
 
 <!DOCTYPE html>
@@ -30,11 +31,18 @@ include("config.php");
 include("connect.php");
 include("libery.php");
 
+
+
+
 if (isset($_SESSION['bantime']) && ($_SESSION['bantime'] > time())) {
     echo ($_SESSION['bantime'] - time());
 }
 
-
+if (isset($_SESSION['visit'])) {
+    echo "посещений " . $_SESSION['visit']= $_SESSION['visit']+1 . "<br>";
+}else {
+    echo "посещений 0";
+}
 
 $result_count = $mysqli->query('SELECT count(*) FROM guests'); //считаем количество строк в таблице
 $count = $result_count->fetch_array(MYSQLI_NUM)[0];
@@ -57,7 +65,8 @@ for ($i = 1; $i <= $pagecount; $i++) {
     //     $str = "";
     // }
     $str = ($currientpage == $i) ? " class='selectedpage'" : "";
-    $pageination .= "<a href='?page=$i'$str>$i</a>\n";
+    
+    $pageination .= "<a href='? page=$i'$str>$i</a>\n";
 }
 
 $pageination .= "</div>";
@@ -65,6 +74,8 @@ $pageination .= "</div>";
 $result = $mysqli->query("SELECT * FROM guests LIMIT $startrow, $pagesize");
 
 echo $pageination;
+
+
 
 echo "<table border='1'>\n";
 while ($row = $result->fetch_object()) {
