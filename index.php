@@ -100,7 +100,7 @@ $mysqli->close();
         <input type="text" name="name"><br>
         <button type="submit">отправить</button>
     </form>
-
+1233333
 
 </body>
 
