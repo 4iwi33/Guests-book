@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION['visit'];
 ?>
 
 <!DOCTYPE html>
@@ -38,9 +39,10 @@ if (isset($_SESSION['bantime']) && ($_SESSION['bantime'] > time())) {
 }
 
 if (isset($_SESSION['visit'])) {
-    echo "посещений " . $_SESSION['visit']= $_GET['visit']+1 . "<br>";
+    echo "посещений " . $_SESSION['visit']= $_SESSION['visit']+1 . "<br>";
 }else {
-    echo "посещений 0";
+    $_SESSION['visit']=1;
+    echo "посещений " . $_SESSION['visit'];
 }
 
 $result_count = $mysqli->query('SELECT count(*) FROM guests'); //считаем количество строк в таблице
@@ -65,7 +67,7 @@ for ($i = 1; $i <= $pagecount; $i++) {
     // }
     $str = ($currientpage == $i) ? " class='selectedpage'" : "";
     
-    $pageination .= "<a href='?visit=$_SESSION[visit] page=$i'$str>$i</a>\n";
+    $pageination .= "<a href='?page=$i'$str>$i</a>\n";
 }
 
 $pageination .= "</div>";
