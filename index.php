@@ -39,7 +39,7 @@ if (isset($_SESSION['bantime']) && ($_SESSION['bantime'] > time())) {
 }
 
 if (isset($_SESSION['visit'])) {
-    echo "посещений " . $_SESSION['visit']= $_SESSION['visit']+1 . "<br>";
+    echo "посещений " . $_SESSION['visit']= $_GET['visit']+1 . "<br>";
 }else {
     echo "посещений 0";
 }
@@ -66,7 +66,7 @@ for ($i = 1; $i <= $pagecount; $i++) {
     // }
     $str = ($currientpage == $i) ? " class='selectedpage'" : "";
     
-    $pageination .= "<a href='? page=$i'$str>$i</a>\n";
+    $pageination .= "<a href='?visit=$_SESSION[visit] page=$i'$str>$i</a>\n";
 }
 
 $pageination .= "</div>";
