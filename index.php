@@ -59,17 +59,6 @@ $result_count->free();
 
 // $pageination = "<div class='pageination'>\n";
 
-<<<<<<< HEAD
-// for ($i = 1; $i <= $pagecount; $i++) {
-//     // if ($currientpage == $i) {
-//     //     $str = " class='selectedpage'";
-//     // } else {
-//     //     $str = "";
-//     // }
-//     $str = ($currientpage == $i) ? " class='selectedpage'" : "";
-//     $pageination .= "<a href='?page=$i'$str>$i</a>\n";
-// }
-=======
 for ($i = 1; $i <= $pagecount; $i++) {
     // if ($currientpage == $i) {
     //     $str = " class='selectedpage'";
@@ -80,7 +69,6 @@ for ($i = 1; $i <= $pagecount; $i++) {
     
     $pageination .= "<a href='?page=$i'$str>$i</a>\n";
 }
->>>>>>> ca9c5caff5a0da8d66a3c43b23847190f918c421
 
 // $pageination .= "</div>";
 
