@@ -76,7 +76,6 @@ $result = $mysqli->query("SELECT * FROM guests LIMIT $startrow, $pagesize");
 
 // echo $pageination;
 
-<<<<<<< HEAD
 // echo "<table border='1'>\n";
 // while ($row = $result->fetch_object()) {
 //     echo "<tr>";
@@ -85,18 +84,6 @@ $result = $mysqli->query("SELECT * FROM guests LIMIT $startrow, $pagesize");
 //     echo "</tr>";
 // }
 // echo "</table>\n";
-=======
-
-
-echo "<table border='1'>\n";
-while ($row = $result->fetch_object()) {
-    echo "<tr>";
-    echo "<td>" . smile($row->text) . "</td>";
-    echo "<td>" . $row->name . "</td>";
-    echo "</tr>";
-}
-echo "</table>\n";
->>>>>>> ca9c5caff5a0da8d66a3c43b23847190f918c421
 
 // echo $pageination;
 
